@@ -7,17 +7,7 @@ namespace CG_14_3__Timer_
     {
         static void Main(string[] args)
         {
-            //Create a basic timer application that lets the user 
-            //    set a timer in minutes, seconds, hours or a 
-            //    combination thereof.Think of it as a command line 
-            //    version of setting a timer through Siri or an Amazon 
-            //    Echo.Try to make it as flexible as possible to all 
-            //    kinds of crazy input command.Make sure to document 
-            //    your program well with comments and create the proper 
-            //    classes and objects. Don’t forget your new error 
-            //    handling skills.
-
-
+            
             Console.WriteLine("Timer program");
 
             Console.Write("Type the length of time between now and when you would like the timer to go off in hours, minutes, and seconds \n" +
@@ -48,15 +38,14 @@ namespace CG_14_3__Timer_
         }
 
         
-
-
-        
-
+        /// <summary>
+        /// print elapsed time when timer goes off.
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="e"></param>
         private static void TimedEvent(Object source, ElapsedEventArgs e)
         {
-            Console.WriteLine("Elapsed: {0:HH:mm:ss}",
-                              e.SignalTime);
-
+            Console.WriteLine("Elapsed: {0:HH:mm:ss}", e.SignalTime);
         }
     }
 }
