@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using System.Timers;
 
 namespace CG_14_3__Timer_
@@ -26,58 +25,38 @@ namespace CG_14_3__Timer_
 
             string timeString = Console.ReadLine();
 
-            
-
-            
-
-            Timer timer = new Timer(TotalMilliseconds(timeString));
-            timer.Elapsed += Timer_Elapsed;
-            
-            timer.Start();
-
-
-            Console.ReadLine();
-        }
-
-        private static void Timer_Elapsed(object sender, ElapsedEventArgs e)
-        {
-            Console.WriteLine("Elapsed: {0:HH:mm:ss}", e.SignalTime);
-        }
-
-        public static int TotalMilliseconds(string timeString)
-        {
-            string[] timestringSplit = timeString.Split(":");
-
-            int hours = 0;
-            int minutes = 0;
-            int seconds = 0;
-            int totalMinutes = 0;
-            int totalSeconds = 0;
-            
-
-
-
-            for (int i = 0; i < timestringSplit.Length; i++)
+            //if/else to handle exception thrown from the try/can in the SetTime.TotalMilliseconds method. 
+            //if TotalMilliseconds method returns 0, it means it was not
+            //input in proper format and will print an error message to user.
+            //if TotalMilliseconds method does not return 0, the rest of the program will run.
+            if (SetTime.TotalMilliseconds(timeString) == 0)
             {
-                if (i == 0)
-                    hours = int.Parse(timestringSplit[i]);
+                Console.WriteLine("Error. Set time not in proper format.");
+            }
 
-                else if (i == 1)
-                    minutes = int.Parse(timestringSplit[i]);
-
-                else
-                    seconds = int.Parse(timestringSplit[i]);
+            else
+            {
+                
+                Timer timer = new Timer(SetTime.TotalMilliseconds(timeString));
+                timer.Elapsed += TimedEvent;
+                timer.Start();
 
             }
 
-
-            totalMinutes = (hours * 60) + minutes;
-            totalSeconds = (totalMinutes * 60) + seconds;
-            return totalSeconds * 1000;
-            
+            Console.ReadLine();
 
         }
+
         
 
-}
+
+        
+
+        private static void TimedEvent(Object source, ElapsedEventArgs e)
+        {
+            Console.WriteLine("Elapsed: {0:HH:mm:ss}",
+                              e.SignalTime);
+
+        }
+    }
 }
