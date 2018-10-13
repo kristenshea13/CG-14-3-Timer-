@@ -1,19 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace CG_14_3__Timer_
 {
     public static class SetTime
     {
-        
-
         public static int TotalMilliseconds(string timeString)
         {
             //split string into separate numbers
             string[] timestringSplit = timeString.Split(":");
-
-            
 
             //try can for error handling...if set time not entered in proper format, method will return 0.
             try
@@ -28,13 +22,10 @@ namespace CG_14_3__Timer_
                 {
                     if (i == 0)
                         hours = int.Parse(timestringSplit[i]);
-
                     else if (i == 1)
                         minutes = int.Parse(timestringSplit[i]);
-
                     else
                         seconds = int.Parse(timestringSplit[i]);
-
                 }
 
                 //math to calculate milliseconds from user input time
@@ -47,8 +38,6 @@ namespace CG_14_3__Timer_
                 //return 0 if user doesn't enter data in correct format
                 return 0;
             }
-
         }
-        
     }
 }

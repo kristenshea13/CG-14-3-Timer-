@@ -3,11 +3,10 @@ using System.Timers;
 
 namespace CG_14_3__Timer_
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
-            
             Console.WriteLine("Timer program");
 
             Console.Write("Type the length of time between now and when you would like the timer to go off in hours, minutes, and seconds \n" +
@@ -15,29 +14,28 @@ namespace CG_14_3__Timer_
 
             string timeString = Console.ReadLine();
 
-            //if/else to handle exception thrown from the try/can in the SetTime.TotalMilliseconds method. 
+            //if/else to handle exception thrown from the try/can in the SetTime.TotalMilliseconds method.
             //if TotalMilliseconds method returns 0, it means it was not
             //input in proper format and will print an error message to user.
             //if TotalMilliseconds method does not return 0, the rest of the program will run.
+
             if (SetTime.TotalMilliseconds(timeString) == 0)
             {
                 Console.WriteLine("Error. Set time not in proper format.");
             }
-
             else
             {
-                
                 Timer timer = new Timer(SetTime.TotalMilliseconds(timeString));
+
                 timer.Elapsed += TimedEvent;
                 timer.Start();
-
+                Console.ReadLine();
+                timer.Stop();
             }
 
             Console.ReadLine();
-
         }
 
-        
         /// <summary>
         /// print elapsed time when timer goes off.
         /// </summary>
@@ -45,7 +43,8 @@ namespace CG_14_3__Timer_
         /// <param name="e"></param>
         private static void TimedEvent(Object source, ElapsedEventArgs e)
         {
-            Console.WriteLine("Time's Up: {0:HH:mm:ss}", e.SignalTime);
+            Console.WriteLine("Time's Up: {0:HH:mm:ss}. Hit enter to stop timer.", e.SignalTime);
+            
         }
     }
 }
