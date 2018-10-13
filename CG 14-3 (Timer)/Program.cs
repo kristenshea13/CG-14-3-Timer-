@@ -33,7 +33,7 @@ namespace CG_14_3__Timer_
                 timer.Stop();
             }
 
-            Console.ReadLine();
+            
         }
 
         /// <summary>
