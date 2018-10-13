@@ -23,12 +23,16 @@ namespace CG_14_3__Timer_
             {
                 Console.WriteLine("Error. Set time not in proper format.");
             }
+
+        
             else
             {
                 Timer timer = new Timer(SetTime.TotalMilliseconds(timeString));
 
                 timer.Elapsed += TimedEvent;
+                //start timer
                 timer.Start();
+                //timer will stop and program will close when user hits enter
                 Console.ReadLine();
                 timer.Stop();
             }
