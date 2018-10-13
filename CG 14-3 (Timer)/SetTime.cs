@@ -13,15 +13,16 @@ namespace CG_14_3__Timer_
             //split string into separate numbers
             string[] timestringSplit = timeString.Split(":");
 
-            int hours = 0;
-            int minutes = 0;
-            int seconds = 0;
-            int totalMinutes = 0;
-            int totalSeconds = 0;
+            
 
             //try can for error handling...if set time not entered in proper format, method will return 0.
             try
             {
+                int hours = 0;
+                int minutes = 0;
+                int seconds = 0;
+                int totalMinutes = 0;
+                int totalSeconds = 0;
                 //separate string into hours, minutes, and seconds
                 for (int i = 0; i < timestringSplit.Length; i++)
                 {

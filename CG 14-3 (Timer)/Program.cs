@@ -45,7 +45,7 @@ namespace CG_14_3__Timer_
         /// <param name="e"></param>
         private static void TimedEvent(Object source, ElapsedEventArgs e)
         {
-            Console.WriteLine("Elapsed: {0:HH:mm:ss}", e.SignalTime);
+            Console.WriteLine("Time's Up: {0:HH:mm:ss}", e.SignalTime);
         }
     }
 }
