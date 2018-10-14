@@ -22,6 +22,7 @@ namespace CG_14_3__Timer_
             if (SetTime.TotalMilliseconds(timeString) == 0)
             {
                 Console.WriteLine("Error. Set time not in proper format.");
+                Console.ReadLine();
             }
 
         
@@ -37,7 +38,7 @@ namespace CG_14_3__Timer_
                 timer.Stop();
             }
 
-            Console.ReadLine();
+            
         }
 
         /// <summary>
